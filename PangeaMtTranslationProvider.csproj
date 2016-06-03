@@ -69,19 +69,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Sdl.LanguagePlatform.TranslationMemory">
-      <HintPath>..\..\Studio2\Sdl.LanguagePlatform.TranslationMemory.dll</HintPath>
+      <HintPath>Studio2\Sdl.LanguagePlatform.TranslationMemory.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.Core.Globalization">
-      <HintPath>..\..\Studio2\Sdl.Core.Globalization.dll</HintPath>
+      <HintPath>Studio2\Sdl.Core.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.LanguagePlatform.TranslationMemoryApi">
-      <HintPath>..\..\Studio2\Sdl.LanguagePlatform.TranslationMemoryApi.dll</HintPath>
+      <HintPath>Studio2\Sdl.LanguagePlatform.TranslationMemoryApi.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.LanguagePlatform.Core">
-      <HintPath>..\..\Studio2\Sdl.LanguagePlatform.Core.dll</HintPath>
+      <HintPath>Studio2\Sdl.LanguagePlatform.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.Core.PluginFramework">
-      <HintPath>..\..\Studio2\Sdl.Core.PluginFramework.dll</HintPath>
+      <HintPath>Studio2\Sdl.Core.PluginFramework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
