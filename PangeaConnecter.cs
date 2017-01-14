@@ -141,7 +141,18 @@ namespace PangeaMtTranslationProvider
             try
             {
                 Dictionary<string, Dictionary<string, object>> sData = jss.Deserialize<Dictionary<string, Dictionary<string, object>>>(json);
-                foreach (Dictionary<string, object> engine in (System.Collections.ArrayList)sData["response"]["result"])
+                Object result = sData["response"]["result"];
+                System.Collections.ArrayList resultArray = new System.Collections.ArrayList();
+                if (result is System.Collections.ArrayList)
+                {
+                    resultArray = (System.Collections.ArrayList)result; // list of dictionaries
+                } 
+                else
+                {
+                    resultArray.Add(result); // single dictionary
+                }
+
+                foreach (Dictionary<string, object> engine in resultArray)
                     if (engine["@xsi.type"].Equals("translation-engine"))
                         enginesList.Add(new PangeaEngine(engine["@id"].ToString(), engine["@lang1"].ToString(), engine["@lang2"].ToString(), engine["@name"].ToString()));
             }
