@@ -1,0 +1,3 @@
+[submodule "CommonTranslationProvider"]
+	path = CommonTranslationProvider
+	url = https://pangeanic.visualstudio.com/_git/CommonTranslationProvider
