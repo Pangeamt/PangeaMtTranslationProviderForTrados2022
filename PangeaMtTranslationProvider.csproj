@@ -140,6 +140,9 @@
     <SDLGenerationVersion>2</SDLGenerationVersion>
     <SDLVersion>11</SDLVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug_v2017.1' Or '$(Configuration)'=='Release_v2017.1'">
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug_v2017' Or '$(Configuration)'=='Release_v2017'">
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
