@@ -298,7 +298,7 @@ namespace PangeaMtTranslationProvider
             if (toSend.Trim().Equals("")) return results; //if our send string is empty then we have nothing to send....so just get out
 
             string returnedString = PangeaConnecter.GetTranslation(toSend, false, _options);
-            returnedString = returnedString.Replace("\r\n", "\n"); //sometimes pangea sends back both \r\n and sometimes just \n .. so we will deal with just \n
+            returnedString = returnedString.Replace('\u00A0', '\n'); //sometimes pangea sends back both \r\n and sometimes just \n .. so we will deal with just \n
             returnedString = returnedString.TrimEnd(); //sometimes pangea returns a line return at the end..and sometimes with spaces after..which we don't want
             
             string[] returnedStrings = returnedString.Split(new char[] { '\n' });

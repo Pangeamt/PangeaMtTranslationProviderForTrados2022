@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangeaMtTranslationProvider", "..\PangeaMtTranslationProvider.csproj", "{60653275-F3F0-4318-8D62-E587AC3716DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_v2011|Any CPU = Debug_v2011|Any CPU
+		Debug_v2014.2|Any CPU = Debug_v2014.2|Any CPU
+		Debug_v2014|Any CPU = Debug_v2014|Any CPU
+		Debug_v2015|Any CPU = Debug_v2015|Any CPU
+		Debug_v2017.1|Any CPU = Debug_v2017.1|Any CPU
+		Debug_v2017|Any CPU = Debug_v2017|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release_v2011|Any CPU = Release_v2011|Any CPU
+		Release_v2014.2|Any CPU = Release_v2014.2|Any CPU
+		Release_v2014|Any CPU = Release_v2014|Any CPU
+		Release_v2015|Any CPU = Release_v2015|Any CPU
+		Release_v2017.1|Any CPU = Release_v2017.1|Any CPU
+		Release_v2017|Any CPU = Release_v2017|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2011|Any CPU.ActiveCfg = Debug_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2011|Any CPU.Build.0 = Debug_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2014.2|Any CPU.ActiveCfg = Debug_v2014.2|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2014.2|Any CPU.Build.0 = Debug_v2014.2|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2014|Any CPU.ActiveCfg = Debug_v2014|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2014|Any CPU.Build.0 = Debug_v2014|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2015|Any CPU.ActiveCfg = Debug_v2015|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2015|Any CPU.Build.0 = Debug_v2015|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2017.1|Any CPU.ActiveCfg = Debug_v2017.1|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2017.1|Any CPU.Build.0 = Debug_v2017.1|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2017|Any CPU.ActiveCfg = Debug_v2017|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2017|Any CPU.Build.0 = Debug_v2017|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug|Any CPU.ActiveCfg = Debug_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug|Any CPU.Build.0 = Debug_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2011|Any CPU.ActiveCfg = Release_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2011|Any CPU.Build.0 = Release_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2014.2|Any CPU.ActiveCfg = Release_v2014.2|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2014.2|Any CPU.Build.0 = Release_v2014.2|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2014|Any CPU.ActiveCfg = Release_v2014|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2014|Any CPU.Build.0 = Release_v2014|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2015|Any CPU.ActiveCfg = Release_v2015|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2015|Any CPU.Build.0 = Release_v2015|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017.1|Any CPU.ActiveCfg = Release_v2017.1|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017.1|Any CPU.Build.0 = Release_v2017.1|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017|Any CPU.ActiveCfg = Release_v2017|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017|Any CPU.Build.0 = Release_v2017|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release|Any CPU.ActiveCfg = Release_v2011|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release|Any CPU.Build.0 = Release_v2011|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
