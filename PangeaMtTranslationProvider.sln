@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32602.291
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangeaMtTranslationProvider", "PangeaMtTranslationProvider.csproj", "{60653275-F3F0-4318-8D62-E587AC3716DE}"
 EndProject
@@ -21,6 +21,7 @@ Global
 		Release_v2015|Any CPU = Release_v2015|Any CPU
 		Release_v2017.1|Any CPU = Release_v2017.1|Any CPU
 		Release_v2017|Any CPU = Release_v2017|Any CPU
+		Release_v2022|Any CPU = Release_v2022|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{60653275-F3F0-4318-8D62-E587AC3716DE}.Debug_v2011|Any CPU.ActiveCfg = Debug_v2011|Any CPU
@@ -51,6 +52,8 @@ Global
 		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017.1|Any CPU.Build.0 = Release_v2017.1|Any CPU
 		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017|Any CPU.ActiveCfg = Release_v2017|Any CPU
 		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2017|Any CPU.Build.0 = Release_v2017|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2022|Any CPU.ActiveCfg = Debug_v2022|Any CPU
+		{60653275-F3F0-4318-8D62-E587AC3716DE}.Release_v2022|Any CPU.Build.0 = Debug_v2022|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
