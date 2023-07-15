@@ -343,6 +343,7 @@ namespace PangeaMtTranslationProvider
         /// <returns></returns>
         public SearchResults[] SearchTranslationUnitsMasked(SearchSettings settings, TranslationUnit[] translationUnits, bool[] mask)
         {
+            List<SearchResults> results = new List<SearchResults>();
             //we want to do things differently if this is a batch translate...this will generally mean that this method
             //is being called with more than 2 or 3
             bool isBatch = translationUnits.Length > 3;
@@ -350,7 +351,13 @@ namespace PangeaMtTranslationProvider
             {
                 try
                 {
-                    return BatchResults(translationUnits, mask).ToArray();
+                    int BATCH_SIZE = 10;
+                    for (int bi = 0; bi < translationUnits.Length; bi += BATCH_SIZE)
+                    {
+                        results.AddRange(BatchResults(new ArraySegment<TranslationUnit>(translationUnits, bi, Math.Min(BATCH_SIZE, translationUnits.Length-bi)).ToArray()  , mask));
+
+                    }
+                    return results.ToArray();
                 }
                 catch  
                 {
@@ -371,7 +378,6 @@ namespace PangeaMtTranslationProvider
                 }
             }
             
-            List<SearchResults> results = new List<SearchResults>();
 
             int i = 0;
             foreach (var tu in translationUnits)
