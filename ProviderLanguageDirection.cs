@@ -273,7 +273,7 @@ namespace PangeaMtTranslationProvider
         private List<SearchResults> BatchResults(TranslationUnit[] tus, bool[] mask)
         {
             List<SearchResults> results = new List<SearchResults>();
-            string toSend = "";
+            List<string> toSend = new List<string>();
             
             for (int i = 0; i < tus.Length; i++)
             {
@@ -287,7 +287,7 @@ namespace PangeaMtTranslationProvider
                     singleresult.SourceSegment = tus[i].SourceSegment;
                     results.Add(singleresult); //add new to hold place of those with mask = true
                     //if (_options.sendPlainTextOnly) //send plain text only if user selects
-                        toSend += tus[i].SourceSegment.ToPlain() + " \r\n "; //have to pad with spaces or Pangea chokes
+                    toSend.Add(tus[i].SourceSegment.ToPlain());
                     //else //send tag markup
                         //toSend += TagPlacer.PreparedSourceText(tus[i].SourceSegment) + " \r\n ";
                 }
@@ -295,13 +295,13 @@ namespace PangeaMtTranslationProvider
                     results.Add(null);
             }
 
-            if (toSend.Trim().Equals("")) return results; //if our send string is empty then we have nothing to send....so just get out
+            //if (toSend.Trim().Equals("")) return results; //if our send string is empty then we have nothing to send....so just get out
 
-            string returnedString = PangeaConnecter.GetTranslation(toSend, false, _options);
-            returnedString = returnedString.Replace('\u00A0', '\n'); //sometimes pangea sends back both \r\n and sometimes just \n .. so we will deal with just \n
-            returnedString = returnedString.TrimEnd(); //sometimes pangea returns a line return at the end..and sometimes with spaces after..which we don't want
+            List<string> returnedStrings = PangeaConnecter.GetTranslation(toSend, false, _options);
+            //returnedString = returnedString.Replace('\u00A0', '\n'); //sometimes pangea sends back both \r\n and sometimes just \n .. so we will deal with just \n
+            //returnedString = returnedString.TrimEnd(); //sometimes pangea returns a line return at the end..and sometimes with spaces after..which we don't want
             
-            string[] returnedStrings = returnedString.Split(new char[] { '\n' });
+            //string[] returnedStrings = returnedString.Split(new char[] { '\n' });
             int returnedStringNumber = 0;
 
 

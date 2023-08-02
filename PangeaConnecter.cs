@@ -5,6 +5,9 @@ using System.Text;
 using System.IO;
 using System.Net;
 using System.Web.Script.Serialization;
+using System.Security.Policy;
+using System.Web;
+using System.CodeDom.Compiler;
 
 namespace PangeaMtTranslationProvider
 {
@@ -26,92 +29,91 @@ namespace PangeaMtTranslationProvider
         /// <returns></returns>
         internal static string GetTranslation(string sourcetext, bool hasTags, ProviderTranslationOptions options)
         {
-            //a try block could be placed in this method, but for now the plugin will just throw any error up to studio
-            
-            //determine which API method to use
-            string method = "translate";
-            bool urlencode = false;
-            if (hasTags && !options.sendPlainTextOnly && !options.useGlossary)
-            {
-                method = "translate-segment"; //we can use translate-segment if glossary is not used
-                urlencode = true; //need to url encode if we are sending tags
-            }
-           if (urlencode)
-                sourcetext = System.Web.HttpUtility.UrlEncode(sourcetext);
-            
-            //get results from Pangea
-            string jsonResult = GetTranslationJson(sourcetext, method, options);
 
-            //now need to deserialize
-            string resultText = "";
-            Dictionary<string, Dictionary<string, string>> sData = jss.Deserialize<Dictionary<string, Dictionary<string, string>>>(jsonResult);
-            if (sData["response"]["@code"].Equals("OK"))
-            {
-                resultText = sData["response"]["@result"];
-                //ureldecode if we have url encoded
-                if (urlencode)
-                {
-                    //pangea seems to return spaces next to the plus signs sent in the URL encoded request...so we want to remove them
-                    //this doesn't completely fix the problem in all cases however
-                    resultText = resultText.Replace("+ ", "+");
-                    resultText = System.Web.HttpUtility.UrlDecode(resultText);
-                }
-            }
-
-            //now...we need to take out newline that Pangea inserts at the end..because Studio segments are generally not going to end in a newline
-            if (resultText.EndsWith("\n"))
-                resultText=resultText.Remove(resultText.Length-1, 1);
-            
-            return resultText;
+            List<string> sourceTextList = new List<string>();
+            sourceTextList.Add(sourcetext);
+            return GetTranslation(sourceTextList, hasTags, options)[0];
         }
 
         /// <summary>
-        /// Returns a json string from Pangea as a result of a translation.
+        /// This method can be accessed to send a text to Pangea.
+        /// It performs encoding/decoding of text based on the options selected and various corresponding limitations of the engine
         /// </summary>
-        /// <param name="sourcetext">The source text.</param>
-        /// <param name="method">The translation method to use on the server</param>
-        /// <param name="options">The set of options to use for the translation</param>
-        /// <returns>A joson string with the translation result from Pangea</returns>
-        private static string GetTranslationJson(string sourcetext, string method, ProviderTranslationOptions options)
+        /// <param name="sourcetext">Array of strings  to be translated</param>
+        /// <param name="hasTags">Whether or not the segment has tag markup to be sent to Pangea</param>
+        /// <param name="options">A <see cref="ProviderTranslationOptions"/> instance containing the set of options for translating</param>
+        /// <returns></returns>
+        internal static List<string> GetTranslation(List<string> textList, bool hasTags, ProviderTranslationOptions options)
         {
-            //build url
-            string url = options.domain + @"/pangeamt/api/rest/" + method;
+            string url = options.domain + @"/NexRelay/v1/translate";
 
-            //to deal with certificate problems 
-            ServicePointManager.ServerCertificateValidationCallback = (sender1, certificate, chain, sslPolicyErrors) => true;
-            
-            //create request
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-            //add credentials to header
-            byte[] credentialsAuth = new UTF8Encoding().GetBytes(options.un + ":" + options.pwd);
-            req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
-            //add others
-            string boundary = Guid.NewGuid().ToString(); //we'll use this again later
-            req.ContentType = "multipart/form-data; boundary=" + boundary;
-            req.Method = "POST";
-
-            //try setting a timeout in case of errors
-            //req.Timeout = 10000;
-
-            //form into valid multipart form data
-            byte[] bytedata = GetMultipartFormData(sourcetext, boundary, options);
-            req.ContentLength = bytedata.Length;
-
-            Stream requestStream = req.GetRequestStream();
-            requestStream.Write(bytedata, 0, bytedata.Length);
-            requestStream.Close();
-
-
-            using (WebResponse response = req.GetResponse())
+            //options.engineID, options.sourceLang, options.targetLang
+            var data = new Dictionary<string, object>
             {
-                using (Stream stream = response.GetResponseStream())
-                {
-                    return new StreamReader(stream).ReadToEnd();
-                }
-            }
+                { "src", options.sourceLang },
+                { "tgt", options.targetLang },
+                { "mode", 2 },
+                { "engine", options.engineID },
+                { "text", textList.ToArray() }
+            };
 
+            try
+            {
+                var start_time = DateTime.Now;
+                var jsonContent = jss.Serialize(data);
+
+                //create request
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+                //add credentials to header
+                byte[] credentialsAuth = new UTF8Encoding().GetBytes(options.un + ":" + options.pwd);
+                req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
+                //add others
+                req.ContentType = "application/json";
+                req.Method = "POST";
+
+                //try setting a timeout in case of errors
+                req.KeepAlive = false;
+                req.Timeout = 50000;
+                req.ServicePoint.ConnectionLeaseTimeout = 50000;
+                req.ServicePoint.MaxIdleTime = 50000;
+
+
+                using (var streamWriter = new StreamWriter(req.GetRequestStream()))
+                {
+                    streamWriter.Write(jsonContent);
+                }
+
+                var result = new List<string>();
+
+                using (WebResponse response = req.GetResponse())
+                {
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        var content =  new StreamReader(stream).ReadToEnd();
+                        var translations =  jss.Deserialize<List<List<Dictionary<string, string>>>>(content);
+
+                        foreach (var translation in translations)
+                        {
+                            if (translation.Count > 0 && translation[0].ContainsKey("tgt"))
+                            {
+                                result.Add(translation[0]["tgt"]);
+                            } else
+                            {
+                                result.Add(null);
+                            }
+                        }
+
+                    }
+                }
+ 
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Failed to translate: {string.Join(",", textList.ToArray())}", e);
+            }
         }
-        
+
 
         /// <summary>
         /// Retrieves the list of engines based on the given credentials and domain.
@@ -267,6 +269,8 @@ namespace PangeaMtTranslationProvider
             }
             //add closing boundary footer to post
             contents += "--" + boundary + "--";
+
+            //DEBUG: File.AppendAllText("C:\\Users\\Pangeanic\\Desktop\\" + "PangeaMT.log", "################" + Environment.NewLine + contents + Environment.NewLine);
             //return byte array from post string
             return Encoding.UTF8.GetBytes(contents);
         }
