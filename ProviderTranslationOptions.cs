@@ -158,6 +158,15 @@ namespace PangeaMtTranslationProvider
             set { SetStringParameter("resenddrafts", value.ToString()); }
         }
 
+        /// <summary>
+        /// Glossary content
+        /// </summary>
+        internal string glossaryContent
+        {
+            get { return GetStringParameter("glossaryContent"); }
+            set { SetStringParameter("glossaryContent", value); }
+        }
+
         #region "SetStringParameter"
         private void SetStringParameter(string p, string value)
         {

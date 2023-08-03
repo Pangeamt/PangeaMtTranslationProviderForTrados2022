@@ -61,6 +61,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.aboutBox = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -70,14 +72,14 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnt_OK
             // 
-            this.bnt_OK.Location = new System.Drawing.Point(323, 505);
-            this.bnt_OK.Margin = new System.Windows.Forms.Padding(4);
+            this.bnt_OK.Location = new System.Drawing.Point(242, 410);
             this.bnt_OK.Name = "bnt_OK";
-            this.bnt_OK.Size = new System.Drawing.Size(100, 28);
+            this.bnt_OK.Size = new System.Drawing.Size(75, 23);
             this.bnt_OK.TabIndex = 3;
             this.bnt_OK.Text = "&OK";
             this.bnt_OK.UseVisualStyleBackColor = true;
@@ -86,10 +88,9 @@
             // btn_Cancel
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(431, 505);
-            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Cancel.Location = new System.Drawing.Point(323, 410);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(100, 28);
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancel.TabIndex = 4;
             this.btn_Cancel.Text = "&Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
@@ -106,10 +107,11 @@
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(512, 457);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(382, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Engines/Language pair";
             // 
@@ -117,9 +119,11 @@
             // 
             this.groupBox6.Controls.Add(this.chkResendDrafts);
             this.groupBox6.Controls.Add(this.chkPlainTextOnly);
-            this.groupBox6.Location = new System.Drawing.Point(9, 376);
+            this.groupBox6.Location = new System.Drawing.Point(7, 306);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(497, 75);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Size = new System.Drawing.Size(373, 61);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Other options:";
@@ -127,9 +131,10 @@
             // chkResendDrafts
             // 
             this.chkResendDrafts.AutoSize = true;
-            this.chkResendDrafts.Location = new System.Drawing.Point(6, 21);
+            this.chkResendDrafts.Location = new System.Drawing.Point(4, 17);
+            this.chkResendDrafts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkResendDrafts.Name = "chkResendDrafts";
-            this.chkResendDrafts.Size = new System.Drawing.Size(277, 21);
+            this.chkResendDrafts.Size = new System.Drawing.Size(208, 17);
             this.chkResendDrafts.TabIndex = 15;
             this.chkResendDrafts.Text = "Re-send draft and translated segments";
             this.chkResendDrafts.UseVisualStyleBackColor = true;
@@ -137,9 +142,10 @@
             // chkPlainTextOnly
             // 
             this.chkPlainTextOnly.AutoSize = true;
-            this.chkPlainTextOnly.Location = new System.Drawing.Point(6, 48);
+            this.chkPlainTextOnly.Location = new System.Drawing.Point(4, 39);
+            this.chkPlainTextOnly.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkPlainTextOnly.Name = "chkPlainTextOnly";
-            this.chkPlainTextOnly.Size = new System.Drawing.Size(214, 21);
+            this.chkPlainTextOnly.Size = new System.Drawing.Size(162, 17);
             this.chkPlainTextOnly.TabIndex = 16;
             this.chkPlainTextOnly.Text = "Send plain text only (no tags)";
             this.chkPlainTextOnly.UseVisualStyleBackColor = true;
@@ -149,18 +155,21 @@
             this.groupBox5.Controls.Add(this.btnBrowseGlossary);
             this.groupBox5.Controls.Add(this.txtGlossaryFile);
             this.groupBox5.Controls.Add(this.chkUseGlossary);
-            this.groupBox5.Location = new System.Drawing.Point(9, 295);
+            this.groupBox5.Location = new System.Drawing.Point(7, 240);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(497, 75);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(373, 61);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Glossary:";
             // 
             // btnBrowseGlossary
             // 
-            this.btnBrowseGlossary.Location = new System.Drawing.Point(413, 47);
+            this.btnBrowseGlossary.Location = new System.Drawing.Point(310, 38);
+            this.btnBrowseGlossary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBrowseGlossary.Name = "btnBrowseGlossary";
-            this.btnBrowseGlossary.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseGlossary.Size = new System.Drawing.Size(56, 19);
             this.btnBrowseGlossary.TabIndex = 7;
             this.btnBrowseGlossary.Text = "Browse...";
             this.btnBrowseGlossary.UseVisualStyleBackColor = true;
@@ -168,20 +177,22 @@
             // 
             // txtGlossaryFile
             // 
-            this.txtGlossaryFile.Location = new System.Drawing.Point(6, 48);
+            this.txtGlossaryFile.Location = new System.Drawing.Point(4, 39);
+            this.txtGlossaryFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtGlossaryFile.Name = "txtGlossaryFile";
             this.txtGlossaryFile.ReadOnly = true;
-            this.txtGlossaryFile.Size = new System.Drawing.Size(401, 22);
+            this.txtGlossaryFile.Size = new System.Drawing.Size(302, 20);
             this.txtGlossaryFile.TabIndex = 6;
             // 
             // chkUseGlossary
             // 
             this.chkUseGlossary.AutoSize = true;
-            this.chkUseGlossary.Location = new System.Drawing.Point(6, 21);
+            this.chkUseGlossary.Location = new System.Drawing.Point(4, 17);
+            this.chkUseGlossary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkUseGlossary.Name = "chkUseGlossary";
-            this.chkUseGlossary.Size = new System.Drawing.Size(370, 21);
+            this.chkUseGlossary.Size = new System.Drawing.Size(346, 17);
             this.chkUseGlossary.TabIndex = 0;
-            this.chkUseGlossary.Text = "Use glossary file (removes tags from source segment)";
+            this.chkUseGlossary.Text = "Use glossary file (TAB-delimited, removes tags from source segment)";
             this.chkUseGlossary.UseVisualStyleBackColor = true;
             this.chkUseGlossary.CheckedChanged += new System.EventHandler(this.chkUseGlossary_CheckedChanged);
             // 
@@ -192,18 +203,21 @@
             this.groupBox4.Controls.Add(this.txtSourceLang);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(9, 214);
+            this.groupBox4.Location = new System.Drawing.Point(7, 174);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(497, 75);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(373, 61);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Language pair:";
             // 
             // btnReverseLangs
             // 
-            this.btnReverseLangs.Location = new System.Drawing.Point(149, 44);
+            this.btnReverseLangs.Location = new System.Drawing.Point(112, 36);
+            this.btnReverseLangs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReverseLangs.Name = "btnReverseLangs";
-            this.btnReverseLangs.Size = new System.Drawing.Size(192, 26);
+            this.btnReverseLangs.Size = new System.Drawing.Size(144, 21);
             this.btnReverseLangs.TabIndex = 4;
             this.btnReverseLangs.Text = "Reverse languages <-->";
             this.btnReverseLangs.UseVisualStyleBackColor = true;
@@ -211,35 +225,39 @@
             // 
             // txtTargetLang
             // 
-            this.txtTargetLang.Location = new System.Drawing.Point(413, 46);
+            this.txtTargetLang.Location = new System.Drawing.Point(310, 37);
+            this.txtTargetLang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTargetLang.Name = "txtTargetLang";
             this.txtTargetLang.ReadOnly = true;
-            this.txtTargetLang.Size = new System.Drawing.Size(51, 22);
+            this.txtTargetLang.Size = new System.Drawing.Size(39, 20);
             this.txtTargetLang.TabIndex = 3;
             // 
             // txtSourceLang
             // 
-            this.txtSourceLang.Location = new System.Drawing.Point(28, 46);
+            this.txtSourceLang.Location = new System.Drawing.Point(21, 37);
+            this.txtSourceLang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSourceLang.Name = "txtSourceLang";
             this.txtSourceLang.ReadOnly = true;
-            this.txtSourceLang.Size = new System.Drawing.Size(54, 22);
+            this.txtSourceLang.Size = new System.Drawing.Size(42, 20);
             this.txtSourceLang.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(410, 26);
+            this.label4.Location = new System.Drawing.Point(308, 21);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 17);
+            this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Target:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 26);
+            this.label3.Location = new System.Drawing.Point(19, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Source:";
             // 
@@ -248,18 +266,21 @@
             this.groupBox3.Controls.Add(this.btnRefresh);
             this.groupBox3.Controls.Add(this.listBoxEngines);
             this.groupBox3.Controls.Add(this.txtEngine);
-            this.groupBox3.Location = new System.Drawing.Point(9, 6);
+            this.groupBox3.Location = new System.Drawing.Point(7, 5);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(497, 202);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(373, 164);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Engine:";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(6, 171);
+            this.btnRefresh.Location = new System.Drawing.Point(4, 139);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(122, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(92, 19);
             this.btnRefresh.TabIndex = 14;
             this.btnRefresh.Text = "Refresh list";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -268,19 +289,20 @@
             // listBoxEngines
             // 
             this.listBoxEngines.FormattingEnabled = true;
-            this.listBoxEngines.ItemHeight = 16;
-            this.listBoxEngines.Location = new System.Drawing.Point(6, 49);
+            this.listBoxEngines.Location = new System.Drawing.Point(4, 40);
+            this.listBoxEngines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxEngines.Name = "listBoxEngines";
-            this.listBoxEngines.Size = new System.Drawing.Size(485, 116);
+            this.listBoxEngines.Size = new System.Drawing.Size(365, 95);
             this.listBoxEngines.TabIndex = 12;
             this.listBoxEngines.SelectedIndexChanged += new System.EventHandler(this.listBoxEngines_SelectedIndexChanged);
             // 
             // txtEngine
             // 
-            this.txtEngine.Location = new System.Drawing.Point(6, 21);
+            this.txtEngine.Location = new System.Drawing.Point(4, 17);
+            this.txtEngine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEngine.Name = "txtEngine";
             this.txtEngine.ReadOnly = true;
-            this.txtEngine.Size = new System.Drawing.Size(485, 22);
+            this.txtEngine.Size = new System.Drawing.Size(365, 20);
             this.txtEngine.TabIndex = 13;
             // 
             // tabPage1
@@ -288,28 +310,32 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(512, 457);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(382, 369);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credentials/Domain";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtDomain);
-            this.groupBox2.Location = new System.Drawing.Point(6, 276);
+            this.groupBox2.Location = new System.Drawing.Point(4, 224);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(500, 68);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(375, 55);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Domain/URL:";
             // 
             // txtDomain
             // 
-            this.txtDomain.Location = new System.Drawing.Point(9, 28);
+            this.txtDomain.Location = new System.Drawing.Point(7, 23);
+            this.txtDomain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(434, 22);
+            this.txtDomain.Size = new System.Drawing.Size(326, 20);
             this.txtDomain.TabIndex = 1;
             // 
             // groupBox1
@@ -320,9 +346,11 @@
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(4, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(500, 247);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(375, 201);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credentials:";
@@ -330,9 +358,10 @@
             // chkSaveCreds
             // 
             this.chkSaveCreds.AutoSize = true;
-            this.chkSaveCreds.Location = new System.Drawing.Point(9, 152);
+            this.chkSaveCreds.Location = new System.Drawing.Point(7, 124);
+            this.chkSaveCreds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkSaveCreds.Name = "chkSaveCreds";
-            this.chkSaveCreds.Size = new System.Drawing.Size(256, 21);
+            this.chkSaveCreds.Size = new System.Drawing.Size(193, 17);
             this.chkSaveCreds.TabIndex = 14;
             this.chkSaveCreds.Text = "Save credentials for future sessions";
             this.chkSaveCreds.UseVisualStyleBackColor = true;
@@ -340,17 +369,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
+            this.label1.Location = new System.Drawing.Point(4, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username:";
             // 
             // btnClearCreds
             // 
-            this.btnClearCreds.Location = new System.Drawing.Point(6, 179);
+            this.btnClearCreds.Location = new System.Drawing.Point(4, 145);
+            this.btnClearCreds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClearCreds.Name = "btnClearCreds";
-            this.btnClearCreds.Size = new System.Drawing.Size(249, 23);
+            this.btnClearCreds.Size = new System.Drawing.Size(187, 19);
             this.btnClearCreds.TabIndex = 12;
             this.btnClearCreds.Text = "Clear saved credentials";
             this.btnClearCreds.UseVisualStyleBackColor = true;
@@ -358,25 +389,28 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(9, 49);
+            this.txtUsername.Location = new System.Drawing.Point(7, 40);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(434, 22);
+            this.txtUsername.Size = new System.Drawing.Size(326, 20);
             this.txtUsername.TabIndex = 7;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(9, 107);
+            this.txtPassword.Location = new System.Drawing.Point(7, 87);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(434, 22);
+            this.txtPassword.Size = new System.Drawing.Size(326, 20);
             this.txtPassword.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 87);
+            this.label2.Location = new System.Drawing.Point(4, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Password:";
             // 
@@ -384,23 +418,46 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(9, 10);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(520, 486);
+            this.tabControl1.Size = new System.Drawing.Size(390, 395);
             this.tabControl1.TabIndex = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.aboutBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(382, 369);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "About";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // aboutBox
+            // 
+            this.aboutBox.Location = new System.Drawing.Point(30, 53);
+            this.aboutBox.Margin = new System.Windows.Forms.Padding(2);
+            this.aboutBox.Multiline = true;
+            this.aboutBox.Name = "aboutBox";
+            this.aboutBox.ReadOnly = true;
+            this.aboutBox.Size = new System.Drawing.Size(302, 123);
+            this.aboutBox.TabIndex = 7;
+            this.aboutBox.Text = "Version: 2023.8.3";
             // 
             // ProviderConfDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 546);
+            this.ClientSize = new System.Drawing.Size(408, 444);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.bnt_OK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProviderConfDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PangeaMT Provider Options";
@@ -419,6 +476,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -457,5 +516,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox aboutBox;
     }
 }

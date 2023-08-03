@@ -8,6 +8,9 @@ using System.Web.Script.Serialization;
 using System.Security.Policy;
 using System.Web;
 using System.CodeDom.Compiler;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms.VisualStyles;
 
 namespace PangeaMtTranslationProvider
 {
@@ -56,6 +59,21 @@ namespace PangeaMtTranslationProvider
                 { "engine", options.engineID },
                 { "text", textList.ToArray() }
             };
+
+            // Add glossary entries matching given source texts
+            if (options.useGlossary)
+            {
+                var entries = new List<Dictionary<string, object>>();
+                foreach (string[] glossaryEntry in ParseFilterGlossary(options.glossaryContent, textList))
+                {
+                   entries.Add(new Dictionary<string, object> {
+                        { "src", glossaryEntry[0] },
+                        { "tgt", glossaryEntry[1] },
+                        { "caseSensitive", false },
+                    });
+                }
+                data["entries"] = entries;
+            }
 
             try
             {
@@ -245,34 +263,52 @@ namespace PangeaMtTranslationProvider
 
         }
 
-        /// <summary>
-        /// Builds a multipart form data post for sending to Pangea to translate.
-        /// </summary>
-        /// <param name="sourcetext">The source text.</param>
-        /// <param name="boundary">The boundary to use in the post.</param>
-        /// <param name="options">The translation options for the different post parameters.</param>
-        /// <returns>A byte array with the form data ready to be posted to Pangea.</returns>
-        private static byte[] GetMultipartFormData(string sourcetext, string boundary, ProviderTranslationOptions options)
-        {
-            //build first part of post
-            string contents = String.Format("{0}\r\nContent-Disposition: form-data; name=\"engine\"\r\n\r\n{1}"
-                    + "\r\n{0}\r\nContent-Disposition: form-data; name=\"langFrom\"\r\n\r\n{2}"
-                    + "\r\n{0}\r\nContent-Disposition: form-data; name=\"langTo\"\r\n\r\n{3}"
-                    + "\r\n{0}\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\n{4}\r\n", "--" + boundary, options.engineID, options.sourceLang, options.targetLang, sourcetext);
-            //add glossary data if applicable
-            if (options.useGlossary)
-            {
-                string filecontent = "";
-                using (StreamReader reader = new StreamReader(options.glossaryFileName, System.Text.Encoding.UTF8))
-                    filecontent = reader.ReadToEnd();
-                contents += String.Format("{0}\r\nContent-Disposition: form-data; name=\"glossary\"; filename=\"{1}\"\r\nContent-Type: text/plain\r\n\r\n{2}\r\n\r\n\r\n", "--" + boundary, options.glossaryFileName, filecontent);
-            }
-            //add closing boundary footer to post
-            contents += "--" + boundary + "--";
 
-            //DEBUG: File.AppendAllText("C:\\Users\\Pangeanic\\Desktop\\" + "PangeaMT.log", "################" + Environment.NewLine + contents + Environment.NewLine);
-            //return byte array from post string
-            return Encoding.UTF8.GetBytes(contents);
+        public static string LoadGlossary(string filename)
+        {
+            string filecontent = "";
+            using (StreamReader reader = new StreamReader(filename, System.Text.Encoding.UTF8))
+                filecontent = reader.ReadToEnd();
+            return filecontent;
+        }
+
+        private  static IEnumerable<string[]> ParseGlossary(string input, char delimiter = '\t')
+        {
+            if (input == null)
+            {
+                yield break;
+            }
+
+            using (System.IO.StringReader reader = new System.IO.StringReader(input))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    yield return line.Split(delimiter);
+                }
+            }
+        }
+
+        private static List<string[]> ParseFilterGlossary(string glossaryContent, List<string> sourceTexts)
+        {
+
+            List<string[]> filteredGlossary = new List<string[]>();
+
+            if (glossaryContent == null)
+            {
+                return filteredGlossary;
+            }
+
+            foreach (string[] glossaryEntry in ParseGlossary(glossaryContent))
+            {
+                foreach (string sourceText in sourceTexts)
+                {
+                    Match m = Regex.Match(sourceText, @"\b" + glossaryEntry[0] + @"\b", RegexOptions.IgnoreCase);
+                    if (m.Success)
+                        filteredGlossary.Add(glossaryEntry);
+                }
+            }
+            return filteredGlossary;
         }
 
     }

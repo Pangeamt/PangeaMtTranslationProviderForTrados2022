@@ -156,6 +156,14 @@ namespace PangeaMtTranslationProvider
                 try { GetEnginesList(4000); }
                 catch { }
 
+            // try loading glossary
+            if (!txtGlossaryFile.Text.Equals("") && chkUseGlossary.Checked)
+            {
+                try
+                {
+                    Options.glossaryContent = PangeaConnecter.LoadGlossary(txtGlossaryFile.Text);
+                } catch { }
+            }
 
 
         }
@@ -170,10 +178,13 @@ namespace PangeaMtTranslationProvider
         {
             //get the engines list
             enginesList = PangeaConnecter.GetEnginesList(txtUsername.Text, txtPassword.Text, txtDomain.Text, timeout);
+            // DEBUG
+            // enginesList.Add(new PangeaEngine("1147", "en", "de", "ENDE_TMP"));
+            
             //now fill the list box
             if (enginesList != null) //in case of error
                 foreach (PangeaEngine entry in enginesList)
-                    listBoxEngines.Items.Add(entry.name + "  (" + entry.lang1 + "<>" + entry.lang2 + ")");
+                    listBoxEngines.Items.Add(entry.name + "  (" + entry.lang1 + "<>" + entry.lang2 + "), id: " + entry.id);
 
             //select item if the text box already has one populated from options and it is in list returned
             if (!txtEngine.Text.Equals(""))
@@ -182,27 +193,7 @@ namespace PangeaMtTranslationProvider
                         listBoxEngines.SetSelected(i, true);
 
         }
-        
-        /// <summary>
-        /// Gets the list of engines to put in the form, using the default timeout
-        /// </summary>
-        private void GetEnginesList()
-        {
-            //get the engines list
-            enginesList = PangeaConnecter.GetEnginesList(txtUsername.Text, txtPassword.Text, txtDomain.Text, 10000);
-            //now fill the list box
-            if(enginesList!=null) //in case of error
-                foreach (PangeaEngine entry in enginesList)
-                    listBoxEngines.Items.Add(entry.name + "  (" + entry.lang1 + "<>" + entry.lang2 + ")");
-            
-            //select item if the text box already has one populated from options and it is in list returned
-            if(!txtEngine.Text.Equals(""))
-                for (int i = 0; i < listBoxEngines.Items.Count; i++)
-                    if (listBoxEngines.Items[i].ToString().Contains(txtEngine.Text))
-                        listBoxEngines.SetSelected(i, true);
-            
-        }
-        
+                
         
         
         #region "OK"
@@ -298,7 +289,7 @@ namespace PangeaMtTranslationProvider
         {
             listBoxEngines.Items.Clear(); //clear existing
 
-            try { GetEnginesList(); }
+            try { GetEnginesList(10000); }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
@@ -371,6 +362,7 @@ namespace PangeaMtTranslationProvider
             if (filename != "")
             {
                 txtGlossaryFile.Text = filename; //set to textbox
+                Options.glossaryContent = PangeaConnecter.LoadGlossary(txtGlossaryFile.Text);
             }
             else return; //have to get out
 
