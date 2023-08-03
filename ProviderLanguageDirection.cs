@@ -348,34 +348,14 @@ namespace PangeaMtTranslationProvider
             //is being called with more than 2 or 3
             bool isBatch = translationUnits.Length > 3;
             if (isBatch)
-            {
-                try
+            {                
+                int BATCH_SIZE = 10;
+                for (int bi = 0; bi < translationUnits.Length; bi += BATCH_SIZE)
                 {
-                    int BATCH_SIZE = 10;
-                    for (int bi = 0; bi < translationUnits.Length; bi += BATCH_SIZE)
-                    {
-                        results.AddRange(BatchResults(new ArraySegment<TranslationUnit>(translationUnits, bi, Math.Min(BATCH_SIZE, translationUnits.Length-bi)).ToArray()  , mask));
+                    results.AddRange(BatchResults(new ArraySegment<TranslationUnit>(translationUnits, bi, Math.Min(BATCH_SIZE, translationUnits.Length-bi)).ToArray()  , mask));
 
-                    }
-                    return results.ToArray();
                 }
-                catch  
-                {
-                    //some batches with a lot of tag-heavy segments are coming back with a server error 500
-                    //not sure why, since the form post looks pretty much the same as the others
-                    //except it's a lot longer
-                    
-                    //for now..throw the error up to Trados Studio
-                    throw; //disadvantage is that Studio kills and rolls back the whole pre-translate, even work already done
-                    
-                    //another option would be to just skip this batch
-                    //return new SearchResults[translationUnits.Length]; //sends back a null list to add
-
-                    //disadvantage to this is that there is no way to let the user know at the end if some are skipped
-                    //because the SDL API does not expose any property or event that would let us know this is the last batch coming in the pre-translate process
-                    
-                    //still another option could be to just let it go from here and try this batch one-by-one, but that ends up being very time-consuming if there are a lot of errors
-                }
+                return results.ToArray();
             }
             
 

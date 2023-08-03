@@ -128,7 +128,7 @@ namespace PangeaMtTranslationProvider
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to translate: {string.Join(",", textList.ToArray())}", e);
+                throw new Exception($"Exception {e.Message} while translating {string.Join(",", textList.ToArray())}", e);
             }
         }
 
