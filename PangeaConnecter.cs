@@ -55,7 +55,7 @@ namespace PangeaMtTranslationProvider
             {
                 { "src", options.sourceLang },
                 { "tgt", options.targetLang },
-                { "mode", 2 },
+                { "apikey",  options.pwd},
                 { "engine", options.engineID },
                 { "text", textList.ToArray() }
             };
@@ -82,9 +82,9 @@ namespace PangeaMtTranslationProvider
 
                 //create request
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-                //add credentials to header
-                byte[] credentialsAuth = new UTF8Encoding().GetBytes(options.un + ":" + options.pwd);
-                req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
+                //add credentials to header - DEPRECATED - using apikey in JSON
+                //byte[] credentialsAuth = new UTF8Encoding().GetBytes(options.un + ":" + options.pwd);
+                //req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
                 //add others
                 req.ContentType = "application/json";
                 req.Method = "POST";
