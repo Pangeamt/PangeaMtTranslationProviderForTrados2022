@@ -55,9 +55,7 @@
             this.txtDomain = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkSaveCreds = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnClearCreds = new System.Windows.Forms.Button();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -69,7 +67,6 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -108,9 +105,9 @@
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(382, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Engines/Language pair";
@@ -120,9 +117,9 @@
             this.groupBox6.Controls.Add(this.chkResendDrafts);
             this.groupBox6.Controls.Add(this.chkPlainTextOnly);
             this.groupBox6.Location = new System.Drawing.Point(7, 306);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox6.Size = new System.Drawing.Size(373, 61);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
@@ -132,7 +129,7 @@
             // 
             this.chkResendDrafts.AutoSize = true;
             this.chkResendDrafts.Location = new System.Drawing.Point(4, 17);
-            this.chkResendDrafts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkResendDrafts.Margin = new System.Windows.Forms.Padding(2);
             this.chkResendDrafts.Name = "chkResendDrafts";
             this.chkResendDrafts.Size = new System.Drawing.Size(208, 17);
             this.chkResendDrafts.TabIndex = 15;
@@ -143,7 +140,7 @@
             // 
             this.chkPlainTextOnly.AutoSize = true;
             this.chkPlainTextOnly.Location = new System.Drawing.Point(4, 39);
-            this.chkPlainTextOnly.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkPlainTextOnly.Margin = new System.Windows.Forms.Padding(2);
             this.chkPlainTextOnly.Name = "chkPlainTextOnly";
             this.chkPlainTextOnly.Size = new System.Drawing.Size(162, 17);
             this.chkPlainTextOnly.TabIndex = 16;
@@ -156,9 +153,9 @@
             this.groupBox5.Controls.Add(this.txtGlossaryFile);
             this.groupBox5.Controls.Add(this.chkUseGlossary);
             this.groupBox5.Location = new System.Drawing.Point(7, 240);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(373, 61);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
@@ -167,7 +164,7 @@
             // btnBrowseGlossary
             // 
             this.btnBrowseGlossary.Location = new System.Drawing.Point(310, 38);
-            this.btnBrowseGlossary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBrowseGlossary.Margin = new System.Windows.Forms.Padding(2);
             this.btnBrowseGlossary.Name = "btnBrowseGlossary";
             this.btnBrowseGlossary.Size = new System.Drawing.Size(56, 19);
             this.btnBrowseGlossary.TabIndex = 7;
@@ -178,7 +175,7 @@
             // txtGlossaryFile
             // 
             this.txtGlossaryFile.Location = new System.Drawing.Point(4, 39);
-            this.txtGlossaryFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGlossaryFile.Margin = new System.Windows.Forms.Padding(2);
             this.txtGlossaryFile.Name = "txtGlossaryFile";
             this.txtGlossaryFile.ReadOnly = true;
             this.txtGlossaryFile.Size = new System.Drawing.Size(302, 20);
@@ -188,7 +185,7 @@
             // 
             this.chkUseGlossary.AutoSize = true;
             this.chkUseGlossary.Location = new System.Drawing.Point(4, 17);
-            this.chkUseGlossary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkUseGlossary.Margin = new System.Windows.Forms.Padding(2);
             this.chkUseGlossary.Name = "chkUseGlossary";
             this.chkUseGlossary.Size = new System.Drawing.Size(346, 17);
             this.chkUseGlossary.TabIndex = 0;
@@ -204,9 +201,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Location = new System.Drawing.Point(7, 174);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(373, 61);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
@@ -215,7 +212,7 @@
             // btnReverseLangs
             // 
             this.btnReverseLangs.Location = new System.Drawing.Point(112, 36);
-            this.btnReverseLangs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReverseLangs.Margin = new System.Windows.Forms.Padding(2);
             this.btnReverseLangs.Name = "btnReverseLangs";
             this.btnReverseLangs.Size = new System.Drawing.Size(144, 21);
             this.btnReverseLangs.TabIndex = 4;
@@ -226,7 +223,7 @@
             // txtTargetLang
             // 
             this.txtTargetLang.Location = new System.Drawing.Point(310, 37);
-            this.txtTargetLang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTargetLang.Margin = new System.Windows.Forms.Padding(2);
             this.txtTargetLang.Name = "txtTargetLang";
             this.txtTargetLang.ReadOnly = true;
             this.txtTargetLang.Size = new System.Drawing.Size(39, 20);
@@ -235,7 +232,7 @@
             // txtSourceLang
             // 
             this.txtSourceLang.Location = new System.Drawing.Point(21, 37);
-            this.txtSourceLang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSourceLang.Margin = new System.Windows.Forms.Padding(2);
             this.txtSourceLang.Name = "txtSourceLang";
             this.txtSourceLang.ReadOnly = true;
             this.txtSourceLang.Size = new System.Drawing.Size(42, 20);
@@ -267,9 +264,9 @@
             this.groupBox3.Controls.Add(this.listBoxEngines);
             this.groupBox3.Controls.Add(this.txtEngine);
             this.groupBox3.Location = new System.Drawing.Point(7, 5);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(373, 164);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
@@ -278,7 +275,7 @@
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(4, 139);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(92, 19);
             this.btnRefresh.TabIndex = 14;
@@ -290,7 +287,7 @@
             // 
             this.listBoxEngines.FormattingEnabled = true;
             this.listBoxEngines.Location = new System.Drawing.Point(4, 40);
-            this.listBoxEngines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxEngines.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxEngines.Name = "listBoxEngines";
             this.listBoxEngines.Size = new System.Drawing.Size(365, 95);
             this.listBoxEngines.TabIndex = 12;
@@ -299,7 +296,7 @@
             // txtEngine
             // 
             this.txtEngine.Location = new System.Drawing.Point(4, 17);
-            this.txtEngine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEngine.Margin = new System.Windows.Forms.Padding(2);
             this.txtEngine.Name = "txtEngine";
             this.txtEngine.ReadOnly = true;
             this.txtEngine.Size = new System.Drawing.Size(365, 20);
@@ -308,23 +305,23 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.txtDomain);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(382, 369);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credentials/Domain";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtDomain);
-            this.groupBox2.Location = new System.Drawing.Point(4, 224);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(0, 149);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(375, 55);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
@@ -332,8 +329,8 @@
             // 
             // txtDomain
             // 
-            this.txtDomain.Location = new System.Drawing.Point(7, 23);
-            this.txtDomain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDomain.Location = new System.Drawing.Point(11, 169);
+            this.txtDomain.Margin = new System.Windows.Forms.Padding(2);
             this.txtDomain.Name = "txtDomain";
             this.txtDomain.Size = new System.Drawing.Size(326, 20);
             this.txtDomain.TabIndex = 1;
@@ -341,16 +338,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.chkSaveCreds);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnClearCreds);
-            this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(4, 5);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(375, 201);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(375, 139);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credentials:";
@@ -358,28 +353,19 @@
             // chkSaveCreds
             // 
             this.chkSaveCreds.AutoSize = true;
-            this.chkSaveCreds.Location = new System.Drawing.Point(7, 124);
-            this.chkSaveCreds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkSaveCreds.Location = new System.Drawing.Point(7, 75);
+            this.chkSaveCreds.Margin = new System.Windows.Forms.Padding(2);
             this.chkSaveCreds.Name = "chkSaveCreds";
             this.chkSaveCreds.Size = new System.Drawing.Size(193, 17);
             this.chkSaveCreds.TabIndex = 14;
             this.chkSaveCreds.Text = "Save credentials for future sessions";
             this.chkSaveCreds.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Username:";
+            this.chkSaveCreds.CheckedChanged += new System.EventHandler(this.chkSaveCreds_CheckedChanged);
             // 
             // btnClearCreds
             // 
-            this.btnClearCreds.Location = new System.Drawing.Point(4, 145);
-            this.btnClearCreds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClearCreds.Location = new System.Drawing.Point(4, 96);
+            this.btnClearCreds.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearCreds.Name = "btnClearCreds";
             this.btnClearCreds.Size = new System.Drawing.Size(187, 19);
             this.btnClearCreds.TabIndex = 12;
@@ -387,32 +373,26 @@
             this.btnClearCreds.UseVisualStyleBackColor = true;
             this.btnClearCreds.Click += new System.EventHandler(this.btnClearCreds_Click);
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(7, 40);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(326, 20);
-            this.txtUsername.TabIndex = 7;
-            // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(7, 87);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Location = new System.Drawing.Point(7, 38);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(326, 20);
             this.txtPassword.TabIndex = 8;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 71);
+            this.label2.Location = new System.Drawing.Point(4, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Password:";
+            this.label2.Text = "API Key:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tabControl1
             // 
@@ -420,7 +400,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(9, 10);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(390, 395);
@@ -446,7 +426,7 @@
             this.aboutBox.ReadOnly = true;
             this.aboutBox.Size = new System.Drawing.Size(302, 123);
             this.aboutBox.TabIndex = 7;
-            this.aboutBox.Text = "Version: 2023.8.3";
+            this.aboutBox.Text = "Version: 2023.8.8";
             // 
             // ProviderConfDialog
             // 
@@ -471,8 +451,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -510,9 +489,7 @@
         private System.Windows.Forms.TextBox txtDomain;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox chkSaveCreds;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClearCreds;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControl1;

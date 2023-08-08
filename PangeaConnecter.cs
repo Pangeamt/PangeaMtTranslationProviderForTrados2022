@@ -143,7 +143,7 @@ namespace PangeaMtTranslationProvider
         /// In this implementation, the timeout is useful when getting engines for the initial form load. 
         /// The reason is that if incorrect settings have been applied, it will take too long for the form to load while waiting for the timeout.</param>
         /// <returns>Returns a List of <see cref="PangeaEngine"/> objects for each available engine</returns>
-        internal static List<PangeaEngine> GetEnginesList(string username, string password, string domain, int timeout)
+        internal static List<PangeaEngine> GetEnginesList(string password, string domain, int timeout=-1)
         {
             List<PangeaEngine> enginesList = new List<PangeaEngine>();
 
@@ -151,7 +151,7 @@ namespace PangeaMtTranslationProvider
             string json = "";
             try
             {
-                json = GetEnginesJson(username, password, domain, timeout);
+                json = GetEnginesJson(password, domain, timeout);
             }
             catch (Exception ex)
             {
@@ -160,21 +160,10 @@ namespace PangeaMtTranslationProvider
 
             try
             {
-                Dictionary<string, Dictionary<string, object>> sData = jss.Deserialize<Dictionary<string, Dictionary<string, object>>>(json);
-                Object result = sData["response"]["result"];
-                System.Collections.ArrayList resultArray = new System.Collections.ArrayList();
-                if (result is System.Collections.ArrayList)
-                {
-                    resultArray = (System.Collections.ArrayList)result; // list of dictionaries
-                } 
-                else
-                {
-                    resultArray.Add(result); // single dictionary
-                }
+                Dictionary<string, List<Dictionary<string, object>>> sData = jss.Deserialize<Dictionary<string, List<Dictionary<string, object>>>>(json);
 
-                foreach (Dictionary<string, object> engine in resultArray)
-                    if (engine["@xsi.type"].Equals("translation-engine"))
-                        enginesList.Add(new PangeaEngine(engine["@id"].ToString(), engine["@lang1"].ToString(), engine["@lang2"].ToString(), engine["@name"].ToString()));
+                foreach (Dictionary<string, object> engine in sData["engines"])
+                    enginesList.Add(new PangeaEngine(engine["id"].ToString(), engine["src"].ToString(), engine["tgt"].ToString(), engine["descr"].ToString()));
             }
             catch (Exception ex)
             {
@@ -186,57 +175,17 @@ namespace PangeaMtTranslationProvider
 
         }
 
-        /// <summary>
-        /// Retrieves the list of engines based on the given credentials and domain
-        /// </summary>
-        /// <param name="username">The name of the user for which to retrive the available engines</param>
-        /// <param name="password">The user's password</param>
-        /// <param name="domain">The domain to connect to Pangea</param>
-        /// <returns>Returns a List of <see cref="PangeaEngine"/> objects for each available engine</returns>
-        internal static List<PangeaEngine> GetEnginesList(string username, string password, string domain)
-        {
-            List<PangeaEngine> enginesList = new List<PangeaEngine>();
-
-            //get data
-            string json = "";
-            try
-            {
-                json = GetEnginesJson(username, password, domain, -1);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            try
-            {
-                Dictionary<string, Dictionary<string, object>> sData = jss.Deserialize<Dictionary<string, Dictionary<string, object>>>(json);
-                foreach (Dictionary<string, object> engine in (System.Collections.ArrayList)sData["response"]["result"])
-                    if (engine["@xsi.type"].Equals("translation-engine"))
-                        enginesList.Add(new PangeaEngine(engine["@id"].ToString(), engine["@lang1"].ToString(), engine["@lang2"].ToString(), engine["@name"].ToString()));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-
-            return enginesList;
-
-        }
-        
         
         /// <summary>
         /// Returns a json string from pangea with the list of available engines.
         /// </summary>
-        /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <param name="domain">The domain.</param>
         /// <param name="timeout">The timeout...if set to 0 it will be the default.</param>
         /// <returns></returns>
-        private static string GetEnginesJson(string username, string password, string domain, int timeout)
+        private static string GetEnginesJson(string password, string domain, int timeout)
         {
-            string url = domain + @"/pangeamt/api/rest/translation-engines";
+            string url = domain + @"/NexRelay/v1/corp/engines?apikey=" + password;
 
             
             //to deal with certificate problems 
@@ -247,9 +196,11 @@ namespace PangeaMtTranslationProvider
             if (timeout >= 0)
                 req.Timeout = (timeout);
             req.PreAuthenticate = false;
+            req.Method = "POST";
+
             //add credentials to header
-            byte[] credentialsAuth = new UTF8Encoding().GetBytes(username + ":" + password);
-            req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
+            //byte[] credentialsAuth = new UTF8Encoding().GetBytes(username + ":" + password);
+            //req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
 
 
             //create response

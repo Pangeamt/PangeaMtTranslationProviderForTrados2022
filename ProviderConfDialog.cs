@@ -120,7 +120,6 @@ namespace PangeaMtTranslationProvider
             
             
             //set controls based on options
-            txtUsername.Text = Options.un;
             txtPassword.Text = Options.pwd;
             if (Options.domain==null || Options.domain.Equals("")) //if domain is empty try to get from settings
             {
@@ -152,7 +151,7 @@ namespace PangeaMtTranslationProvider
 
 
             //try to get list of engines
-            if (!txtUsername.Text.Equals("") && !txtPassword.Text.Equals("") && !txtDomain.Text.Equals(""))
+            if (!txtDomain.Text.Equals(""))
                 try { GetEnginesList(4000); }
                 catch { }
 
@@ -177,7 +176,7 @@ namespace PangeaMtTranslationProvider
         private void GetEnginesList(int timeout)
         {
             //get the engines list
-            enginesList = PangeaConnecter.GetEnginesList(txtUsername.Text, txtPassword.Text, txtDomain.Text, timeout);
+            enginesList = PangeaConnecter.GetEnginesList(txtPassword.Text, txtDomain.Text, timeout);
             // DEBUG
             // enginesList.Add(new PangeaEngine("1147", "en", "de", "ENDE_TMP"));
             
@@ -208,13 +207,12 @@ namespace PangeaMtTranslationProvider
             //otherwise....
 
             //update options based on form settings
-            Options.un = txtUsername.Text;
             Options.pwd = txtPassword.Text;
             Options.saveCredentials = chkSaveCreds.Checked;
             if (chkSaveCreds.Checked) //if user selects to save credentials
             {
                 //set credentials to save in store
-                GenericCredentials creds2 = new GenericCredentials(txtUsername.Text, txtPassword.Text);
+                GenericCredentials creds2 = new GenericCredentials("", txtPassword.Text);
                 SetMyCredentials(credentialStore, creds2, true);
             }
             else //otherwise clear any saved ones
@@ -268,7 +266,6 @@ namespace PangeaMtTranslationProvider
             Options.un = "";
             Options.pwd = "";
 
-            txtUsername.Text = "";
             txtPassword.Text = "";
             
             Uri myUri = new Uri("pangeamtprovider:///");
@@ -323,9 +320,9 @@ namespace PangeaMtTranslationProvider
                 validate = false;
             }
             //check for credentials
-            if (txtUsername.Text.Equals("") || txtPassword.Text.Equals(""))
+            if (txtPassword.Text.Equals(""))
             {
-                prompt += System.Environment.NewLine + "Please enter a valid username and password";
+                prompt += System.Environment.NewLine + "Please enter a valid API key";
                 validate = false;
             }
             //check for a domain
@@ -393,14 +390,19 @@ namespace PangeaMtTranslationProvider
             //update source and target languages
         }
 
-        
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-        
-        
+        }
 
-        
+        private void chkSaveCreds_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
