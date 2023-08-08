@@ -185,7 +185,7 @@ namespace PangeaMtTranslationProvider
         /// <returns></returns>
         private static string GetEnginesJson(string password, string domain, int timeout)
         {
-            string url = domain + @"/NexRelay/v1/corp/engines?apikey=" + password;
+            string url = domain + @"/NexRelay/v1/corp/engines";
 
             
             //to deal with certificate problems 
@@ -198,6 +198,15 @@ namespace PangeaMtTranslationProvider
             req.PreAuthenticate = false;
             req.Method = "POST";
 
+
+            using (var streamWriter = new StreamWriter(req.GetRequestStream()))
+            {
+                streamWriter.Write(jss.Serialize(new Dictionary<string, object>
+                                    {
+                                        { "apikey",  password},
+
+                                    }));
+            }
             //add credentials to header
             //byte[] credentialsAuth = new UTF8Encoding().GetBytes(username + ":" + password);
             //req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(credentialsAuth);
