@@ -352,7 +352,9 @@ namespace PangeaMtTranslationProvider
                 int BATCH_SIZE = 10;
                 for (int bi = 0; bi < translationUnits.Length; bi += BATCH_SIZE)
                 {
-                    results.AddRange(BatchResults(new ArraySegment<TranslationUnit>(translationUnits, bi, Math.Min(BATCH_SIZE, translationUnits.Length-bi)).ToArray()  , mask));
+                    int batchEndIndex = Math.Min(BATCH_SIZE, translationUnits.Length - bi);
+                    results.AddRange(BatchResults(new ArraySegment<TranslationUnit>(translationUnits, bi, batchEndIndex).ToArray(), 
+                                                  new ArraySegment<bool>(mask, bi, batchEndIndex).ToArray()));
 
                 }
                 return results.ToArray();
