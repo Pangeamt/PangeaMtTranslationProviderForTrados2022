@@ -181,14 +181,23 @@ namespace PangeaMtTranslationProvider
             // enginesList.Add(new PangeaEngine("1147", "en", "de", "ENDE_TMP"));
             
             //now fill the list box
-            if (enginesList != null) //in case of error
+            if (enginesList != null) 
+            { //in case of error
+                var autocompleteSource = new AutoCompleteStringCollection();
                 foreach (PangeaEngine entry in enginesList)
-                    listBoxEngines.Items.Add(entry.name + "  (" + entry.lang1 + "<>" + entry.lang2 + "), id: " + entry.id);
+                {
+                    listBoxEngines.Items.Add(entry.title);
+                    autocompleteSource.Add(entry.title);
+                }
+                txtEngine.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtEngine.AutoCompleteCustomSource = autocompleteSource;
+            }
+
 
             //select item if the text box already has one populated from options and it is in list returned
             if (!txtEngine.Text.Equals(""))
                 for (int i = 0; i < listBoxEngines.Items.Count; i++)
-                    if (listBoxEngines.Items[i].ToString().Contains(txtEngine.Text))
+                    if (listBoxEngines.Items[i].ToString().Equals(txtEngine.Text))
                         listBoxEngines.SetSelected(i, true);
 
         }
@@ -233,7 +242,7 @@ namespace PangeaMtTranslationProvider
 
             if (enginesList != null) //this will be null in some cases, but should also be unnecessary since the id will have already been set
                 foreach (PangeaEngine en in enginesList)
-                    if (en.name.Equals(txtEngine.Text))
+                    if (en.title.Equals(txtEngine.Text))
                         Options.engineID = en.id;
                 
             Options.sourceLang = txtSourceLang.Text;
@@ -380,9 +389,9 @@ namespace PangeaMtTranslationProvider
         private void listBoxEngines_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (PangeaEngine entry in enginesList)
-                if (listBoxEngines.SelectedItem.ToString().Contains(entry.name))
+                if (listBoxEngines.SelectedItem.ToString().Equals(entry.title))
                 {
-                    txtEngine.Text = entry.name;
+                    txtEngine.Text = entry.title;
                     txtSourceLang.Text = entry.lang1;
                     txtTargetLang.Text = entry.lang2;
                 }
@@ -403,6 +412,26 @@ namespace PangeaMtTranslationProvider
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtEngine_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEngine.AutoCompleteCustomSource.Contains(txtEngine.Text))
+            {
+                listBoxEngines.SelectedIndexChanged -= listBoxEngines_SelectedIndexChanged;
+                for (int i = 0; i < listBoxEngines.Items.Count; i++)
+                    if (listBoxEngines.Items[i].ToString().Equals(txtEngine.Text))
+                        listBoxEngines.SetSelected(i, true);
+                listBoxEngines.SelectedIndexChanged += listBoxEngines_SelectedIndexChanged;
+
+            }
+
+
+            /*            if (!txtEngine.Text.Equals(""))
+                            for (int i = 0; i < listBoxEngines.Items.Count; i++)
+                                if (listBoxEngines.Items[i].ToString().Contains(txtEngine.Text))
+                                    listBoxEngines.SetSelected(i, true);
+            */
         }
     }
 }

@@ -41,5 +41,14 @@ namespace PangeaMtTranslationProvider
         /// Sets and returns the name.
         /// </summary>
         internal string name { get; set; }
+
+        // Human-readable title (representation) of the engine
+        internal string title
+        {
+            get
+            {
+                return name + "  (" + lang1 + "<>" + lang2 + "), id: " + id;
+            }
+        } 
     }
 }

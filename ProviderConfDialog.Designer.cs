@@ -51,8 +51,8 @@
             this.listBoxEngines = new System.Windows.Forms.ListBox();
             this.txtEngine = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDomain = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkSaveCreds = new System.Windows.Forms.CheckBox();
             this.btnClearCreds = new System.Windows.Forms.Button();
@@ -295,12 +295,14 @@
             // 
             // txtEngine
             // 
+            this.txtEngine.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtEngine.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtEngine.Location = new System.Drawing.Point(4, 17);
             this.txtEngine.Margin = new System.Windows.Forms.Padding(2);
             this.txtEngine.Name = "txtEngine";
-            this.txtEngine.ReadOnly = true;
             this.txtEngine.Size = new System.Drawing.Size(365, 20);
             this.txtEngine.TabIndex = 13;
+            this.txtEngine.TextChanged += new System.EventHandler(this.txtEngine_TextChanged);
             // 
             // tabPage1
             // 
@@ -316,6 +318,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credentials/Domain";
             // 
+            // txtDomain
+            // 
+            this.txtDomain.Location = new System.Drawing.Point(11, 169);
+            this.txtDomain.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(326, 20);
+            this.txtDomain.TabIndex = 1;
+            // 
             // groupBox2
             // 
             this.groupBox2.Location = new System.Drawing.Point(0, 149);
@@ -326,14 +336,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Domain/URL:";
-            // 
-            // txtDomain
-            // 
-            this.txtDomain.Location = new System.Drawing.Point(11, 169);
-            this.txtDomain.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(326, 20);
-            this.txtDomain.TabIndex = 1;
             // 
             // groupBox1
             // 
