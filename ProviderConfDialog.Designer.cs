@@ -40,12 +40,6 @@
             this.btnBrowseGlossary = new System.Windows.Forms.Button();
             this.txtGlossaryFile = new System.Windows.Forms.TextBox();
             this.chkUseGlossary = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnReverseLangs = new System.Windows.Forms.Button();
-            this.txtTargetLang = new System.Windows.Forms.TextBox();
-            this.txtSourceLang = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.listBoxEngines = new System.Windows.Forms.ListBox();
@@ -64,7 +58,6 @@
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,7 +95,6 @@
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
@@ -116,7 +108,7 @@
             // 
             this.groupBox6.Controls.Add(this.chkResendDrafts);
             this.groupBox6.Controls.Add(this.chkPlainTextOnly);
-            this.groupBox6.Location = new System.Drawing.Point(7, 306);
+            this.groupBox6.Location = new System.Drawing.Point(7, 238);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
@@ -142,9 +134,9 @@
             this.chkPlainTextOnly.Location = new System.Drawing.Point(4, 39);
             this.chkPlainTextOnly.Margin = new System.Windows.Forms.Padding(2);
             this.chkPlainTextOnly.Name = "chkPlainTextOnly";
-            this.chkPlainTextOnly.Size = new System.Drawing.Size(162, 17);
+            this.chkPlainTextOnly.Size = new System.Drawing.Size(184, 17);
             this.chkPlainTextOnly.TabIndex = 16;
-            this.chkPlainTextOnly.Text = "Send plain text only (no tags)";
+            this.chkPlainTextOnly.Text = "Send plain text only (without tags)";
             this.chkPlainTextOnly.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -152,7 +144,7 @@
             this.groupBox5.Controls.Add(this.btnBrowseGlossary);
             this.groupBox5.Controls.Add(this.txtGlossaryFile);
             this.groupBox5.Controls.Add(this.chkUseGlossary);
-            this.groupBox5.Location = new System.Drawing.Point(7, 240);
+            this.groupBox5.Location = new System.Drawing.Point(7, 173);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -192,71 +184,6 @@
             this.chkUseGlossary.Text = "Use glossary file (TAB-delimited, removes tags from source segment)";
             this.chkUseGlossary.UseVisualStyleBackColor = true;
             this.chkUseGlossary.CheckedChanged += new System.EventHandler(this.chkUseGlossary_CheckedChanged);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnReverseLangs);
-            this.groupBox4.Controls.Add(this.txtTargetLang);
-            this.groupBox4.Controls.Add(this.txtSourceLang);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(7, 174);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(373, 61);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Language pair:";
-            // 
-            // btnReverseLangs
-            // 
-            this.btnReverseLangs.Location = new System.Drawing.Point(112, 36);
-            this.btnReverseLangs.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReverseLangs.Name = "btnReverseLangs";
-            this.btnReverseLangs.Size = new System.Drawing.Size(144, 21);
-            this.btnReverseLangs.TabIndex = 4;
-            this.btnReverseLangs.Text = "Reverse languages <-->";
-            this.btnReverseLangs.UseVisualStyleBackColor = true;
-            this.btnReverseLangs.Click += new System.EventHandler(this.btnReverseLangs_Click);
-            // 
-            // txtTargetLang
-            // 
-            this.txtTargetLang.Location = new System.Drawing.Point(310, 37);
-            this.txtTargetLang.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTargetLang.Name = "txtTargetLang";
-            this.txtTargetLang.ReadOnly = true;
-            this.txtTargetLang.Size = new System.Drawing.Size(39, 20);
-            this.txtTargetLang.TabIndex = 3;
-            // 
-            // txtSourceLang
-            // 
-            this.txtSourceLang.Location = new System.Drawing.Point(21, 37);
-            this.txtSourceLang.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSourceLang.Name = "txtSourceLang";
-            this.txtSourceLang.ReadOnly = true;
-            this.txtSourceLang.Size = new System.Drawing.Size(42, 20);
-            this.txtSourceLang.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 21);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Target:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Source:";
             // 
             // groupBox3
             // 
@@ -448,8 +375,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -476,12 +401,6 @@
         private System.Windows.Forms.Button btnBrowseGlossary;
         private System.Windows.Forms.TextBox txtGlossaryFile;
         private System.Windows.Forms.CheckBox chkUseGlossary;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnReverseLangs;
-        private System.Windows.Forms.TextBox txtTargetLang;
-        private System.Windows.Forms.TextBox txtSourceLang;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ListBox listBoxEngines;

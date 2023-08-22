@@ -42,7 +42,7 @@ namespace PangeaMtTranslationProvider
         /// This method can be accessed to send a text to Pangea.
         /// It performs encoding/decoding of text based on the options selected and various corresponding limitations of the engine
         /// </summary>
-        /// <param name="sourcetext">Array of strings  to be translated</param>
+        /// <param name="textList">Array of strings  to be translated</param>
         /// <param name="hasTags">Whether or not the segment has tag markup to be sent to Pangea</param>
         /// <param name="options">A <see cref="ProviderTranslationOptions"/> instance containing the set of options for translating</param>
         /// <returns></returns>
@@ -136,8 +136,7 @@ namespace PangeaMtTranslationProvider
         /// <summary>
         /// Retrieves the list of engines based on the given credentials and domain.
         /// </summary>
-        /// <param name="username">The name of the user for which to retrive the available engines</param>
-        /// <param name="password">The user's password</param>
+        /// <param name="password">The user's API key</param>
         /// <param name="domain">The domain to connect to Pangea</param>
         /// <param name="timeout">This overloaded method allows specifying a timeout for the connection. 
         /// In this implementation, the timeout is useful when getting engines for the initial form load. 

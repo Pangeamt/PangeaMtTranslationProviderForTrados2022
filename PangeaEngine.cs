@@ -47,7 +47,7 @@ namespace PangeaMtTranslationProvider
         {
             get
             {
-                return name + "  (" + lang1 + "<>" + lang2 + "), id: " + id;
+                return name + "  (" + lang1 + ">" + lang2 + "), id: " + id;
             }
         } 
     }

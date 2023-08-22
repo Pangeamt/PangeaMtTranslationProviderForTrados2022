@@ -17,6 +17,9 @@ namespace PangeaMtTranslationProvider
     {
 
         private List<PangeaEngine> enginesList;
+        private string txtSourceLang;
+        private string txtTargetLang;
+
         private ITranslationProviderCredentialStore credentialStore;
         
         #region "ProviderConfDialog"
@@ -132,8 +135,9 @@ namespace PangeaMtTranslationProvider
             }
 
             txtEngine.Text = Options.engineName;
-            txtSourceLang.Text = Options.sourceLang;
-            txtTargetLang.Text = Options.targetLang;
+            txtSourceLang = Options.sourceLang;
+            txtTargetLang = Options.targetLang;
+
             chkUseGlossary.Checked = Options.useGlossary;
             txtGlossaryFile.Text = Options.glossaryFileName;
             chkResendDrafts.Checked = Options.resendDrafts;
@@ -245,8 +249,8 @@ namespace PangeaMtTranslationProvider
                     if (en.title.Equals(txtEngine.Text))
                         Options.engineID = en.id;
                 
-            Options.sourceLang = txtSourceLang.Text;
-            Options.targetLang = txtTargetLang.Text;
+            Options.sourceLang = txtSourceLang;
+            Options.targetLang = txtTargetLang;
             Options.useGlossary = chkUseGlossary.Checked;
             Options.glossaryFileName = txtGlossaryFile.Text;
             Options.resendDrafts = chkResendDrafts.Checked;
@@ -375,15 +379,6 @@ namespace PangeaMtTranslationProvider
             //test for valid file here???
             
         }
-
-        private void btnReverseLangs_Click(object sender, EventArgs e)
-        {
-            //swap source and target languages
-            string x = txtSourceLang.Text;
-            txtSourceLang.Text = txtTargetLang.Text;
-            txtTargetLang.Text = x;
-        }
-
         
 
         private void listBoxEngines_SelectedIndexChanged(object sender, EventArgs e)
@@ -392,8 +387,8 @@ namespace PangeaMtTranslationProvider
                 if (listBoxEngines.SelectedItem.ToString().Equals(entry.title))
                 {
                     txtEngine.Text = entry.title;
-                    txtSourceLang.Text = entry.lang1;
-                    txtTargetLang.Text = entry.lang2;
+                    txtSourceLang = entry.lang1;
+                    txtTargetLang = entry.lang2;
                 }
 
             //update source and target languages
