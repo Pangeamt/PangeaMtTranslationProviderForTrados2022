@@ -286,10 +286,10 @@ namespace PangeaMtTranslationProvider
                     //This fixes a problem that occurs in Studio 2011, but not Studio 2009
                     singleresult.SourceSegment = tus[i].SourceSegment;
                     results.Add(singleresult); //add new to hold place of those with mask = true
-                    //if (_options.sendPlainTextOnly) //send plain text only if user selects
-                    toSend.Add(tus[i].SourceSegment.ToPlain());
-                    //else //send tag markup
-                        //toSend += TagPlacer.PreparedSourceText(tus[i].SourceSegment) + " \r\n ";
+                    if (_options.sendPlainTextOnly) //send plain text only if user selects
+                        toSend.Add(tus[i].SourceSegment.ToPlain());
+                    else //send tag markup
+                        toSend.Add(TagPlacer.PreparedSourceText(tus[i].SourceSegment));
                 }
                 else
                     results.Add(null);

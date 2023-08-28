@@ -355,7 +355,7 @@
             this.aboutBox.ReadOnly = true;
             this.aboutBox.Size = new System.Drawing.Size(302, 123);
             this.aboutBox.TabIndex = 7;
-            this.aboutBox.Text = "Version: 2023.8.8";
+            this.aboutBox.Text = "Version: 2023.8.28";
             // 
             // ProviderConfDialog
             // 
