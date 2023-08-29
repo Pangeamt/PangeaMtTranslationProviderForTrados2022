@@ -81,6 +81,20 @@ namespace PangeaMtTranslationProvider
         #region "SearchSegment"
         public SearchResults SearchSegment(SearchSettings settings, Segment segment)
         {
+            return SearchSegment(settings, segment, "");
+        }
+
+        /// <summary>
+        /// Performs the actual search.
+        /// <para>Depending on the search mode, a segment lookup (with exact matching) or a source / target
+        /// concordance search is done</para>.
+        /// </summary>
+        /// <param name="settings">A <c>SearchSettings</c> object passed by Trados Studio with the settings for the current search.</param>
+        /// <param name="segment">A <c>Segment</c> object representing the current source segment.</param>
+        /// <returns></returns>
+        #region "SearchSegment"
+        private SearchResults SearchSegment(SearchSettings settings, Segment segment, string filepath)
+        {
             
 
             #region "SearchResultsObject"
@@ -96,7 +110,7 @@ namespace PangeaMtTranslationProvider
             if (settings.Mode == SearchMode.ConcordanceSearch)
             {
                 targetSegment = new Segment();
-                string targetText = PangeaConnecter.GetTranslation(segment.ToPlain(), false, _options);
+                string targetText = PangeaConnecter.GetTranslation(segment.ToPlain(), false, filepath, _options);
                 targetSegment.Add(targetText);
                 results.Add(CreateSearchResult(segment, targetSegment));
                 return results;
@@ -116,13 +130,13 @@ namespace PangeaMtTranslationProvider
             }
             else if (segment.HasTags && !_options.sendPlainTextOnly) //if we are dealing with tags and segment has tags, we need to place them
             {
-                string targetText = PangeaConnecter.GetTranslation(TagPlacer.PreparedSourceText(segment), true, _options); //prepared source text from TagPlacer helps pangea deal with tags
+                string targetText = PangeaConnecter.GetTranslation(TagPlacer.PreparedSourceText(segment), true, filepath, _options); //prepared source text from TagPlacer helps pangea deal with tags
                 targetSegment = TagPlacer.GetTaggedTargetSegment(targetText, segment);
             }
             else //otherwise just add the text returned by portage directly to a target segment
             {
                 targetSegment = new Segment();
-                string targetText = PangeaConnecter.GetTranslation(segment.ToPlain(), false, _options);
+                string targetText = PangeaConnecter.GetTranslation(segment.ToPlain(), false, filepath, _options);
                 targetSegment.Add(targetText);
             }
             
@@ -240,7 +254,7 @@ namespace PangeaMtTranslationProvider
         {
             //need to use the tu confirmation level in searchsegment method
             inputTu = translationUnit;
-            return SearchSegment(settings, translationUnit.SourceSegment);
+            return SearchSegment(settings, translationUnit.SourceSegment, translationUnit.DocumentProperties.LastOpenedAsPath);
         }
 
         /// <summary>
@@ -274,9 +288,13 @@ namespace PangeaMtTranslationProvider
         {
             List<SearchResults> results = new List<SearchResults>();
             List<string> toSend = new List<string>();
-            
+
+            string filepath = "";
+
             for (int i = 0; i < tus.Length; i++)
             {
+                if (i == 0)
+                    filepath = tus[i].DocumentProperties.LastOpenedAsPath;
                 //don't resend segments in the batch if they are already translated and user has not selected option to re-send
                 bool dontsend = tus[i].ConfirmationLevel != ConfirmationLevel.Unspecified && !_options.resendDrafts;
                 if (mask[i] && !dontsend)
@@ -297,7 +315,7 @@ namespace PangeaMtTranslationProvider
 
             //if (toSend.Trim().Equals("")) return results; //if our send string is empty then we have nothing to send....so just get out
 
-            List<string> returnedStrings = PangeaConnecter.GetTranslation(toSend, false, _options);
+            List<string> returnedStrings = PangeaConnecter.GetTranslation(toSend, false, filepath, _options);
             //returnedString = returnedString.Replace('\u00A0', '\n'); //sometimes pangea sends back both \r\n and sometimes just \n .. so we will deal with just \n
             //returnedString = returnedString.TrimEnd(); //sometimes pangea returns a line return at the end..and sometimes with spaces after..which we don't want
             
@@ -309,14 +327,14 @@ namespace PangeaMtTranslationProvider
             {
                 if (results[i] != null)
                 {
-                    //if (!_options.sendPlainTextOnly && tus[i].SourceSegment.HasTags)
-                        //results[i].Add(CreateSearchResult(tus[i].SourceSegment, TagPlacer.GetTaggedTargetSegment(returnedStrings[returnedStringNumber], tus[i].SourceSegment)));
-                    //else
-                    //{
+                    if (!_options.sendPlainTextOnly && tus[i].SourceSegment.HasTags)
+                        results[i].Add(CreateSearchResult(tus[i].SourceSegment, TagPlacer.GetTaggedTargetSegment(returnedStrings[returnedStringNumber], tus[i].SourceSegment)));
+                    else
+                    {
                         Segment targetSegment = new Segment();
                         targetSegment.Add(returnedStrings[returnedStringNumber].Trim());
                         results[i].Add(CreateSearchResult(tus[i].SourceSegment, targetSegment));
-                    //}
+                    }
                     returnedStringNumber++; //move to the next string in our list of returned strings
                 }
             }
@@ -479,3 +497,4 @@ namespace PangeaMtTranslationProvider
         #endregion
     }
 }
+#endregion

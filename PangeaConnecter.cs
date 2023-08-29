@@ -30,12 +30,12 @@ namespace PangeaMtTranslationProvider
         /// <param name="hasTags">Whether or not the segment has tag markup to be sent to Pangea</param>
         /// <param name="options">A <see cref="ProviderTranslationOptions"/> instance containing the set of options for translating</param>
         /// <returns></returns>
-        internal static string GetTranslation(string sourcetext, bool hasTags, ProviderTranslationOptions options)
+        internal static string GetTranslation(string sourcetext, bool hasTags, string filepath, ProviderTranslationOptions options)
         {
 
             List<string> sourceTextList = new List<string>();
             sourceTextList.Add(sourcetext);
-            return GetTranslation(sourceTextList, hasTags, options)[0];
+            return GetTranslation(sourceTextList, hasTags, filepath, options)[0];
         }
 
         /// <summary>
@@ -46,10 +46,11 @@ namespace PangeaMtTranslationProvider
         /// <param name="hasTags">Whether or not the segment has tag markup to be sent to Pangea</param>
         /// <param name="options">A <see cref="ProviderTranslationOptions"/> instance containing the set of options for translating</param>
         /// <returns></returns>
-        internal static List<string> GetTranslation(List<string> textList, bool hasTags, ProviderTranslationOptions options)
+        internal static List<string> GetTranslation(List<string> textList, bool hasTags, string filepath, ProviderTranslationOptions options)
         {
             string url = options.domain + @"/NexRelay/v1/translate";
 
+            string filename = Path.GetFileName(filepath); 
             //options.engineID, options.sourceLang, options.targetLang
             var data = new Dictionary<string, object>
             {
@@ -57,6 +58,7 @@ namespace PangeaMtTranslationProvider
                 { "tgt", options.targetLang },
                 { "apikey",  options.pwd},
                 { "engine", options.engineID },
+                { "filename",  filename},
                 { "text", textList.ToArray() }
             };
 
