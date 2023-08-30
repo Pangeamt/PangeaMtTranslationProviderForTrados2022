@@ -85,7 +85,7 @@ namespace PangeaMtTranslationProvider
                         //add that trailing space to our tag as leading space
                         theTag.padRight = nextText.Substring(0, whitespace);
                     }
-                    dict.Add(theTag.SdlTag.ToString(), theTag);
+                    dict.Add(theTag.SdlTag.ToString().ToLower(), theTag);
                 }
             }
 
