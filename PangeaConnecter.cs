@@ -48,6 +48,12 @@ namespace PangeaMtTranslationProvider
         /// <returns></returns>
         internal static List<string> GetTranslation(List<string> textList, bool hasTags, string filepath, ProviderTranslationOptions options)
         {
+            var result = new List<string>();
+            if (textList.Count == 0)
+            {
+                return result;
+            }
+
             string url = options.domain + @"/NexRelay/v1/translate";
 
             string filename = Path.GetFileName(filepath); 
@@ -103,7 +109,6 @@ namespace PangeaMtTranslationProvider
                     streamWriter.Write(jsonContent);
                 }
 
-                var result = new List<string>();
 
                 using (WebResponse response = req.GetResponse())
                 {

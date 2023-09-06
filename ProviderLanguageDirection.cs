@@ -273,7 +273,7 @@ namespace PangeaMtTranslationProvider
             {
                 //need to use the tu confirmation level in searchsegment method
                 inputTu = translationUnits[p]; 
-                results[p] = SearchSegment(settings, translationUnits[p].SourceSegment);
+                results[p] = SearchSegment(settings, translationUnits[p].SourceSegment, translationUnits[p].DocumentProperties.LastOpenedAsPath);
             }
             return results;
         }
