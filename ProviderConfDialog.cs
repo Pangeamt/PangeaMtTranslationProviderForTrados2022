@@ -148,11 +148,6 @@ namespace PangeaMtTranslationProvider
             //enable/disable controls based on saved options 
             txtGlossaryFile.Enabled = Options.useGlossary;
             btnBrowseGlossary.Enabled = Options.useGlossary;
-            //for now cannot use glossary with sending tags, b/c tags require URL encoding, which makes glossary not work
-            if (Options.useGlossary)
-                chkPlainTextOnly.Checked = true;
-            chkPlainTextOnly.Enabled = !Options.useGlossary;
-
 
             //try to get list of engines
             if (!txtDomain.Text.Equals(""))
@@ -308,9 +303,6 @@ namespace PangeaMtTranslationProvider
             //enable/disable controls based on user selection 
             txtGlossaryFile.Enabled = chkUseGlossary.Checked;
             btnBrowseGlossary.Enabled = chkUseGlossary.Checked;
-            //for now cannot use glossary with sending tags, b/c tags require URL encoding, which makes glossary not work
-            chkPlainTextOnly.Checked = chkUseGlossary.Checked;
-            chkPlainTextOnly.Enabled = !chkUseGlossary.Checked;
         }
 
         /// <summary>
