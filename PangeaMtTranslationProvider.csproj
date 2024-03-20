@@ -198,6 +198,13 @@
     <PluginDeploymentPath>$(AppData)\Roaming\Trados\Trados Studio\17\Plugins</PluginDeploymentPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sdl.Core.Globalization.Async, Version=1.8.0.0, Culture=neutral, PublicKeyToken=c28cdb26c445c888, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Trados\Trados Studio\Studio17\Sdl.Core.Globalization.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Sdl.FileTypeSupport.Framework.Core">
+      <HintPath>..\..\..\..\Program Files (x86)\Trados\Trados Studio\Studio17\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -314,6 +321,9 @@
     <PackageReference Include="Sdl.Core.PluginFramework.Build">
       <Version>17.0.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\..\Program Files %28x86%29\Trados\Trados Studio\Studio17\Sdl.Core.Globalization.Async.dll" />
   </ItemGroup>
   <PropertyGroup>
     <CreatePluginPackage>true</CreatePluginPackage>

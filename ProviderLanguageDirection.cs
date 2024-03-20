@@ -47,9 +47,9 @@ namespace PangeaMtTranslationProvider
         #endregion
 
         /// <summary>
-        /// A <see cref="System.Globalization.CultureInfo"/> object representing the source language.
+        /// A <see cref="Sdl.Core.Globalization.CultureCode	"/> object representing the source language.
         /// </summary>
-        public System.Globalization.CultureInfo SourceLanguage
+        public Sdl.Core.Globalization.CultureCode SourceLanguage
         {
             get { return _languageDirection.SourceCulture; }
         }
@@ -57,7 +57,7 @@ namespace PangeaMtTranslationProvider
         /// <summary>
         /// A <see cref="System.Globalization.CultureInfo"/> object representing the target language.
         /// </summary>
-        public System.Globalization.CultureInfo TargetLanguage
+        public Sdl.Core.Globalization.CultureCode TargetLanguage
         {
             get { return _languageDirection.TargetCulture; }
         }
