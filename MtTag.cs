@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using Sdl.LanguagePlatform.Core;
 
@@ -14,7 +15,7 @@ namespace PangeaMtTranslationProvider
         Tag tag;
         string padleft;
         string padright;
-        
+
         /// <summary>
         /// Used as a wrapper for an SDL <c>Tag</c> object, so additional information can be associated with it.
         /// </summary>
@@ -25,7 +26,7 @@ namespace PangeaMtTranslationProvider
             padleft = "";
             padright = "";
         }
-        
+
         /// <summary>
         /// Stores and returns a string representing the whitespace, tabs, and or carriage returns before a tag object in the source text
         /// </summary>
@@ -51,5 +52,17 @@ namespace PangeaMtTranslationProvider
         {
             get { return tag; }
         }
+        
+        /// <summary>
+        /// Escape TextEquivalent attribute in the tag string representation
+        /// </summary>
+        public override string ToString()
+        {
+            Tag tag = new Tag(this.tag);
+            tag.TextEquivalent = SecurityElement.Escape(tag.TextEquivalent);
+            String key = tag.ToString();
+            return key;
+        }
+
     }
 }

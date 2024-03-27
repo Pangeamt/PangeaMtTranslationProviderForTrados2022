@@ -5,6 +5,7 @@ using System.Text;
 using Sdl.LanguagePlatform.TranslationMemory;
 using Sdl.LanguagePlatform.Core;
 using System.Text.RegularExpressions;
+using System.Security;
 
 namespace PangeaMtTranslationProvider
 {
@@ -27,12 +28,18 @@ namespace PangeaMtTranslationProvider
             foreach (var element in segment.Elements)
             {
                 System.Type elType = element.GetType();
-                if (elType.ToString().Equals("Sdl.LanguagePlatform.Core.Tag")) //if a tag 
+                if (elType.ToString().Equals("Sdl.LanguagePlatform.Core.Tag")) //if a tag
+                {
                     //add a leading and trailing space or otherwise pangea seems not to handle it
-                    result += " " + element.ToString() + " ";
+                    MtTag mtTag = new MtTag((Tag)element);
+                    result += " " + mtTag.ToString() + " ";
                     //result += element.ToString();
+                }
                 else
+                {
                     result += element.ToString(); //just add if anything besides tag
+
+                }
             }
             return result;
         }
@@ -85,7 +92,7 @@ namespace PangeaMtTranslationProvider
                         //add that trailing space to our tag as leading space
                         theTag.padRight = nextText.Substring(0, whitespace);
                     }
-                    dict.Add(theTag.SdlTag.ToString().ToLower(), theTag);
+                    dict.Add(theTag.ToString().ToLower(), theTag);
                 }
             }
 
