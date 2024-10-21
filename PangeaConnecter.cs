@@ -110,11 +110,16 @@ namespace PangeaMtTranslationProvider
                 }
 
 
-                using (WebResponse response = req.GetResponse())
+                using (HttpWebResponse response = (HttpWebResponse)req.GetResponse())
                 {
                     using (Stream stream = response.GetResponseStream())
                     {
                         var content =  new StreamReader(stream).ReadToEnd();
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            throw new Exception(response.StatusDescription + ": " + (string)content);
+                        }
+
                         var translations =  jss.Deserialize<List<List<Dictionary<string, string>>>>(content);
 
                         foreach (var translation in translations)
