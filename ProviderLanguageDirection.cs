@@ -293,7 +293,7 @@ namespace PangeaMtTranslationProvider
 
             for (int i = 0; i < tus.Length; i++)
             {
-                if (i == 0)
+                if (filepath == "" && tus[i].DocumentProperties != null)
                     filepath = tus[i].DocumentProperties.LastOpenedAsPath;
                 //don't resend segments in the batch if they are already translated and user has not selected option to re-send
                 bool dontsend = tus[i].ConfirmationLevel != ConfirmationLevel.Unspecified && !_options.resendDrafts;

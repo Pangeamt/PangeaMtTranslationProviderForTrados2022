@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PangeaMtTranslationProvider</RootNamespace>
-    <AssemblyName>PangeaMtTranslationProvider_2022</AssemblyName>
+    <AssemblyName>PangeaMtTranslationProvider2022</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>

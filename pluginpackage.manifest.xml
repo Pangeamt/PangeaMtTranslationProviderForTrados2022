@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PluginPackage xmlns="http://www.sdl.com/Plugins/PluginPackage/1.0">
   <PlugInName>PangeaMtTranslationProvider_2022</PlugInName>
-  <Version>24.10.21</Version>
+  <Version>24.10.25</Version>
   <Description>Translation Provider Template</Description>
   <Author>Pangeanic</Author>
   <RequiredProduct name="TradosStudio" minversion="17.0" maxversion="17.9" />

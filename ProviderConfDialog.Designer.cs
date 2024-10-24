@@ -355,7 +355,7 @@
             this.aboutBox.ReadOnly = true;
             this.aboutBox.Size = new System.Drawing.Size(302, 123);
             this.aboutBox.TabIndex = 7;
-            this.aboutBox.Text = "Version: 1.0.24.0327";
+            this.aboutBox.Text = "Version: 24.10.25";
             // 
             // ProviderConfDialog
             // 
